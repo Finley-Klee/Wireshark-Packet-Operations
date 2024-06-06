@@ -2,12 +2,11 @@
 This is a walkthrough of my work on the TryHackMe lab (https://tryhackme.com/r/room/wiresharkpacketoperations)
 
 <h2>Description</h2>
-Insert a short description of the project
+This lab is designed to build upon the skills learned in the Wireshark basics lab. In this continuation the focus is placed on packet-level details with statistics, filters, operations, and functions.
 
 <h2>Utilities Used</h2>
 
-- <b>Number 1</b> 
-- <b>Number 2</b>
+- <b>Wireshark</b> 
 
 <h2>Environments Used </h2>
 
@@ -15,7 +14,7 @@ Insert a short description of the project
 
 <h2>Project walk-through:</h2>
 
-- <b>Section Name</b>
+- <b>Statistics | Summary</b>
 <p>Description</p>
 <br>
 <p align="center">Step One: <br/>
