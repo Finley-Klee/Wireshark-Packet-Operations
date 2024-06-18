@@ -33,30 +33,31 @@ This lab is designed to build upon the skills learned in the Wireshark basics la
   <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/e72e84e3-eb35-459b-93d5-eb2039c8eade" height="80%" width="80%" alt="the wireshark endpoints window shows a list of endpoints listed by their MAC address. The line with a Micro-St MAC address is highlighted and a red rectangle surrounds the number of bytes which reads 7474k"/>
 <br />
 <br />
-Step Four: <br />
-  <img src="" height="80%" width="80%" alt="image four"/>
+Then I searched for the number of IP addresses linked with Kansas City by navigating to the endpoints window, and then clicked on the IPv4 tab. I scrolled through the list focusing on the city column until I found 4 IP addresses with Kansas City listed as their location.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/306c576c-bd05-4841-8dbe-0926f4ccbfad" height="80%" width="80%" alt="the endpoints window in wireshark is shown with a list of IPv4 hosts and various data about them. The highlighted row shows the first of four hosts with IP addresses that are located in Kansas City"/>
+<br />
+<br />
+Lastly, for this section, I stayed in the endpoints window but scrolled horizontally to find the AS Organization column. I searched for the "Blicnet" organization and discovered that it has the IP address 188.246.82.7<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/fb2eb599-fb42-49be-9357-580f8612c94c" height="80%" width="80%" alt="A highlighted row in the endpoints window showing an IP address associated with Blicnet in the AS organization column."/>
 </p>
 <br />
 <br />
-- <b>Section Name</b>
-<p>Description</p>
+- <b>Statistics | Protocol Details</b>
+<p>The next section focuses on observing trends through the IPv4 and IPv6 Statistics menus.</p>
 <br>
-<p align="center">Step One: <br/>
-  <img src="" height="80%" width="80%" alt="image one"/>
+<p align="center">First I found the most used IPv4 destination address by navigating to the IPv4 statistics menu, then to the source and destination addresses.<br/>
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/6313bda8-759d-4827-abb2-e2251c94f293" height="80%" width="80%" alt="the menu navigation from statistics to IPv4 statistics to source and destination addresses in wireshark."/>
   <br />
   <br />
-  Step Two: <br />
-  <img src="" height="80%" width="80%" alt="image two"/>
+  Once in the source and destination addresses window, I collapsed the source IPv4 addresses and expanded the destination IPv4 addresses. Then I sorted them by count descending so that the destination address with the most connections would be listed first.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/5fca248f-1500-4aba-aa01-1573b9fb867f" height="80%" width="80%" alt="The wireshark window shows the source and destination IPv4 addresses for all of the endpoints involved in the packet capture. The highlighted row shows the top result for destination IP address when sorted by count."/>
   <br />
   <br />
-  Step Three: <br />
-  <img src="" height="80%" width="80%" alt="image three"/>
+  Next, I investigated the DNS activity using the DNS menu under statistics. The DNS window shows both minimum and maximum values for each topic. I sorted the topics alphabetically and scrolled down to the service stats to find the request-response time max value.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/8dccd323-feff-4a46-8d05-83fd5931dfcb" height="80%" width="80%" alt="the DNS window of wireshark with a highlighted line for request response time."/>
    <br />
   <br />
-  Step Four: <br />
-  <img src="" height="80%" width="80%" alt="image four"/>
-   <br />
-  <br />
-  Step Five: <br />
-  <img src="" height="80%" width="80%" alt="image five"/>
+  Finally, I used the load distribution to find the number of successful HTTP requests by rad[.]msn[.]com<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/7bb123b9-800a-40ff-baef-f53019647fcc" height="80%" width="80%" alt="various domain names are listed to the left with rad.msn.com highlighted showing 39 requests in the count column."/>
 </p>
+
