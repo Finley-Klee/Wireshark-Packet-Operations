@@ -60,4 +60,33 @@ Lastly, for this section, I stayed in the endpoints window but scrolled horizont
   Finally, I used the load distribution to find the number of successful HTTP requests by rad[.]msn[.]com<br />
   <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/7bb123b9-800a-40ff-baef-f53019647fcc" height="80%" width="80%" alt="various domain names are listed to the left with rad.msn.com highlighted showing 39 requests in the count column."/>
 </p>
-
+<br />
+<br />
+- <b>Packet Filtering</b>
+<p>In task 4, packet filtering principles, I learned that filters can be used both during the capture phase and at the display level. One must be careful when using capture filters because misuse of filters can result in important packets related to the incident not being captured at all, and so TryHackMe recommended to start with capturing without filters and then filtering the packet capture later in the display. There is a syntax used to write filters in Wireshark comparison and logical operators, and the filtering principles task teaches how to use that syntax. Following this instruction phase I put that knowledge to work in the packet filtering | protocol filters task.</p>
+<br>
+<p align="center">It started simple with the filter "ip" to find the number of Internet Protocol packets in the capture. We can see at the bottom of the page that this filter applies to 99.9% of the packets, resulting in a total of 81420 ip packets.<br/>
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/b7376a7d-6419-4fdb-bede-42c8e6a2458c" height="80%" width="80%" alt="the wireshark overview page is shown with the letters i p in the filter box."/>
+  <br />
+  <br />
+ Next, I used the comparison operator less than to filter based upon the time to live value of ip packets and find the number of packets where the ttl is less than 10.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/e0803afd-4aea-4182-923a-0aa32c9008be" height="80%" width="80%" alt="the wireshark packet capture page with 'ip.ttl < 10' in the filter bar."/>
+  <br />
+  <br />
+  Then I filtered by tcp port 4444 using the equal to operator.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/3f51f0d8-ec52-432d-b06b-a8f228f2bc1b" height="80%" width="80%" alt="the wireshark packet capture page with 'tcp.port == 4444' in the filter bar."/>
+   <br />
+  <br />
+  The next filter gets slightly more complicated. I needed to use the '&&' operator to combine two filters. The first filter selects all of the http packets based upon their request method, selecting only the get requests, and the and operator further narrows that selection to those requests that had a tcp destination port of 80.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/dd4cf9a8-ce93-4871-b0cd-cf742acd32f2" height="80%" width="80%" alt="the wireshark packet capture page with 'http.request.method == GET && tcp.dstport ==80' in the filter bar."/>
+<br />
+<br />
+Lastly, I used the knowlege that I could create a filter by selecting it in the "Display Filter Expression" menu to find the filter for DNS type A queries.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/4e49c226-9792-44eb-ab7a-b3a08a57e2c8" height="80%" width="80%" alt="Within the display filter expression window the row dns.a Address is highlighted and to othe right a section showing the options is present, ==, !=, <, etc. has the is present option selected."/>
+  <br />
+  <br />
+  It turned out that the filter was simply dns.a, but since I didn't know that initially, I was able to find that information. As a result I was able to discover 51 DNS type A queries.
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/f3da3781-83b7-4cf9-b3a5-820057d6d048" height="80%" width="80%" alt="the wireshark packet capture page with 'dns.a' in the filter bar."/>
+</p>
+<br />
+<br />
