@@ -90,3 +90,34 @@ Lastly, I used the knowlege that I could create a filter by selecting it in the 
 </p>
 <br />
 <br />
+- <b>Advanced Filtering</b>
+<p>In this last section I stretched my filtering skills by adding terms like "matches", "contains" and "string" to really refine the filter options.</p>
+<br>
+<p align="center">First, I searched for the http servers that contained "Microsoft" to find the Microsoft-IIS servers and added the does not equal comparison filter to exclude any that had a source port of 80. <br/>
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/4de92679-79b7-4e0d-be28-7fe4c63d2943" height="80%" width="80%" alt="At the top of the wireshark window, the filter bar is yellow and shows the filter 'http.server contains "Microsoft" && tcp.srcport != 80'"/>
+  <br />
+  <br />
+ Then I narrowed in on only the Microsoft-IIS servers which were version 7.5 by adding a "matches" filter.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/2556dae8-e4dc-4bd2-a42b-2c132a73f8f6" height="80%" width="80%" alt="The wireshark window is shown with a green filter bar at the top containing the filters 'http.server contains "Microsoft-IIS" && http.server matches "7.5"'"/>
+  <br />
+  <br />
+ Next, to search for any packets that used one of a number of tcp ports, I used the "in" filter and a set containing the ports to include.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/34011ed6-52ba-4502-90b0-969b1a0bdd4b" height="80%" width="80%" alt="The wireshark window with the filter 'tcp.port in {3333, 4444, 9999}' shown at the top."/>
+   <br />
+  <br />
+  To filter only the packets with even valued time to live, I first had to convert those values into a string using the "string" filter, then match the last number to a set of even numbers.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/a12bf547-f638-4164-a59e-e98eae1dc56c" height="80%" width="80%" alt="The wireshark window with the filter 'string(ip.ttl) matches "[02468]$"' shown at the top."/>
+<br />
+<br />
+In the last two questions I used a previously created "Checksum Control" profile. I, once again, used the "Display Filter Expression" menu to find the filter for bad checksum values.<br />
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/5cab6b11-c809-48fe-aeb8-552e5048cdd7" height="80%" width="80%" alt="The Display Filter Expression menu is shown with the TCP field name expanded and the sub field "bad checksum" highlighted. To the right of this, in the relation section, the value "is present" is highlighted."/>
+  <br />
+  <br />
+  This allowed me to see only the packets with bad checksum values, which had a black custom highlight color associated with the Checksum Control profile.
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/c595cc27-c956-42cb-906e-cd4330757fc4" height="80%" width="80%" alt="At the top of the wireshark window, the green filter bar is seen with the filter 'tcp.checksum_bad.expert' and below that all of the packets have a black background with red font color."/>
+  <br />
+  <br />
+  Lastly, I clicked on the bookmarked filter button to the right of the filter bar to find the number of packets with http response code 200 that also contained gif or jpeg image content.
+  <img src="https://github.com/Finley-Klee/Wireshark-Packet-Operations/assets/171582741/011422d1-7e4c-4a6c-945a-2d4aacdb089a" height="80%" width="80%" alt="The wireshark window is shown with the filters '(http.response.code == 200) && (http.content_type matches "image(gif||jpeg)")' at the top."/>
+</p>
+
